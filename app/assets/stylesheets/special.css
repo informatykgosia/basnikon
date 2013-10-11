@@ -1,0 +1,62 @@
+img.basnikon{
+margin-left:330px;;
+margin-top:30px;
+}
+
+.home{
+width: 900px;
+margin:0 auto;
+position:relative;
+}
+.home a, .home a:hover{
+background:none;
+border:none;
+}
+h5{
+font-size:2em;
+color:#8B9CAC;
+margin-left:270px;
+margin-bottom:-20px;
+}
+.about h5{
+  font-family:'Lato',helvetica Neue, Helvetica,  Arial, sans-serif;
+}
+.about a, .about a:hover{
+color:#8B9CAC;
+background:none;
+border:none;
+}
+h6{
+font-size:1em;
+color:#000;
+margin-left:420px;
+}
+img.homeregister, img.homelogin{
+  position:absolute;
+top:140px;
+}
+img.homregister{
+left: 0px;
+}
+img.homelogin{
+right:0px;
+}
+.homemenu{
+width:930px;
+margin:0 auto;
+}
+.homemenu a, .homemenu a:hover{
+border:none;
+background:none;
+}
+img.homemenuill{
+display:inline-block;
+margin:35px;
+}
+.about{
+width: 700px;
+margin:0 auto;
+margin-top: 50px;
+font-family: 'georgia', serif;
+text-align:center;
+}

@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Baśnioteka - katalog postaci baśniowych</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Patrick+Hand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+    <%= stylesheet_link_tag "application","special","lightbox", :media => "all" %>   
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag :defaults, "rails.validations" %>
+    <%= javascript_include_tag "jquery-1.7.2.min.js"%>
+    <%= javascript_include_tag "lightbox.js"%>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class=home>
+        <%= image_tag('logo.png', :class=>"basnikon")%>
+        <h5> Katalog postaci baśniowych </h5>
+        <h6> przeglądaj:</h6>
+        <%= link_to image_tag("homeregister.png", :class=>"homeregister"), new_user_path %>
+        <%= link_to image_tag("homelogin.png", :class=>"homelogin"), login_path %>
+      </div>
+      <div class="homemenu">
+        <%= link_to image_tag("homeheros.png", :class=>"homemenuill"), heros_path %>
+        <%= link_to image_tag("homestories.png", :class=>"homemenuill"), stories_path %>
+        <%= link_to image_tag("homeauthors.png", :class=>"homemenuill"), authors_path %>
+      </div>
+      <footer>
+        <p>Małgorzata Nowak &#169 <%= Time.now.year %><br />
+           <%=link_to "o stronie", about_path%>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

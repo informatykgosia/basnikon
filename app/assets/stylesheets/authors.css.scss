@@ -1,0 +1,126 @@
+// Place all the styles related to the authors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.authorindex{
+height: 400px;
+width:250px;
+display:inline-block;
+position:relative;
+margin:10px 30px;
+background: #e4ebe3
+}
+.authorindex p{
+text-align: center;
+background:#d0e2d7;
+}
+.authorindex a, .authorindex a:hover{
+border:none;
+background:none;
+color: #000;
+font-weight: solid;
+}
+a.miniauthor{
+position:absolute;
+top:50px;
+border:none;
+left:20px;
+}
+
+a.miniauthor:hover{
+background:none;
+}
+ol.author{
+-moz-column-count: 2;
+-webkit-column-count:2;
+column-count:2;
+}
+ol.author li{
+break-inside: avoid-column;
+}
+li.letter{
+color:#d1c692;
+font-weight:600;
+font-size:1.8em;
+font-family:georgia,serif;
+font-style:italic;
+}
+.oneletter li{
+list-style:none;
+margin-left:-30px;
+}
+.oneletter{
+border-left: 2px solid #d1c692;
+margin-bottom:30px;
+}
+.authordescription{
+display:none;
+}
+.flip{
+cursor:pointer;
+width: 397px;
+height:33px;
+background: url('buttonflipdescription.png');
+margin-left: 230px;
+margin-top:10px;
+}
+img.image{
+float:left;
+margin:15px;
+margin-top: 0px;
+}
+.newauthor, .editauthor{
+padding:50px;
+margin:0 auto;
+background:#f7F7DE;
+background-position:640px 300px;
+background-repeat:no-repeat;
+}
+.newauthor{
+background-image: url('fox.png');
+}
+.editauthor{
+background-image: url('fox2.png');
+background-position:780px 400px;
+}
+.buttonnewauthor{
+width:215px;
+height:36px;
+border:none;
+background:transparent;
+background-image: url('buttonnewauthor.png');
+background-repeat:no-repeat;
+margin-top:20px;
+cursor:pointer;
+}
+.buttonnewauthor:hover{
+background-image: url('buttonnewauthor2.png');
+background-position: 1px 2px;
+}
+.buttoneditauthor{
+width:215px;
+height:36px;
+border:none;
+background:transparent;
+background-image: url('buttoneditauthor.png');
+background-repeat:no-repeat;
+margin-top:20px;
+cursor:pointer;
+}
+.buttoneditauthor:hover{
+background-image: url('buttoneditauthor2.png');
+background-position: 1px 2px;
+}
+.opcjeautora{
+height:50px;
+margin-bottom:-20px;
+}
+.opcjeautora a{
+background:#bdcccb;
+color:#000;
+padding:10px;
+border:none;
+}
+.opcjeautora a:hover{
+background: #7a9493;
+color: #FFF;
+}

@@ -1,0 +1,33 @@
+<div class='matop'></div>
+<div class='main'>
+<div class='literki'>
+  <% @all_heros.keys.sort.each do |starting_letter| %>
+	<% if params[:letter] == starting_letter %>
+	<b><span> <%= starting_letter %> </span>|</b>
+	<%else%>
+  <b><%= link_to starting_letter, heros_path(:letter => starting_letter)%>|</b>
+	<% end %>
+  <% end %>
+</div>
+<%= image_tag('pasek.png', :class=>'pasek') %>
+	<% if params[:tag_name] %>
+		<div class="tagged">Bohaterowie otagowani jako <span><%= params[:tag_name]%></span></div>
+	<%end%>
+<ol>
+	<ul>
+<% @heros.keys.sort.each do |starting_letter| %>
+  <div class="oneletter">
+	 <li class="letter"> <%= starting_letter %></li>
+	<ul>
+  <% @heros[starting_letter].each do |hero| %>
+  <li>  <%= link_to hero.name, hero %>
+         <% story = Story.find(hero.story_id) %>
+         <i>(<%= story.title %>)</i></li>
+  <% end%>
+</ul>
+</div>
+<% end %>
+</ul>
+</ol>
+</div>
+<div class='mabottom'></div>

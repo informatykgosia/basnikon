@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag(@hero.picture_url, :width => 350, :class=>"picture") if @hero.picture.present?  %>
+<div class="textbox">
+  <h1>
+    <%= @hero.name %>
+  </h1>
+  <h4>
+    z baśni:<%= link_to @hero.story.title, story_path(@story) %>
+   autor/autorzy: <%= link_to @author.first_name + ' ' + @author.last_name, author_path(@author) %>
+ </h4>
+ dodane przez <%=@hero.user.login %>
+tagi:
+<% @hero.tags.each do |tag| %>
+  <%= link_to tag.name, {:action => :tag, :id => tag.name} %>
+  <%end%>
+ <hr>
+  <%= @hero.descritpion.html_safe %>
+
+  
+</div>
+
+
+<%= link_to 'Edit', edit_hero_path(@hero) %> |
+<%= link_to 'Back', heros_path %>

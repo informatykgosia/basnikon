@@ -1,0 +1,28 @@
+<h1>Nowa baśń</h1>
+<div class="formstory">
+  <%= form_for @story, :validate => true do |f| %>
+    <%= f.error_messages %>
+    <div class="field">
+      <span>*</span>   <%= f.label "Tytuł" %><br/>
+      <%= f.text_field :title %>
+    </div>
+    <%# f.fields_for :authors do |a| %>
+      <%#= p.label_for :author_id %>
+      <%#= p.select :author_id, @authors, {:include_blank => true } %>
+      <%# end %>
+      <div class="field">
+        <span>*</span>Autorzy <br />
+      <% for author in Author.all %>
+        <%= check_box_tag "story[author_ids][]", author.id, @story.authors.include?(author) %>
+        <%= author.full_name %> <br />      
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.label "opis" %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="actions">
+      <%= f.submit "", :class=>"buttonnewstory" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<%= form_for @comment, :validate=>true do |f| %>
+  <%= f.error_messages %>
+  <div class="field">
+    <%= f.text_area :body %>
+  </div>
+  <%= f.hidden_field :hero_id, :value=>@hero.id %> 
+ <div class="actions">
+   <%= f.submit "", :class=>"buttonnewcomment"%>
+  </div>
+<% end %>

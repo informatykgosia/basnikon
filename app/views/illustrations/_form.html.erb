@@ -1,0 +1,20 @@
+
+  <h4> Dodaj ilustrację </h4>
+<div class = "formillustrations">
+<%= form_for(@illustration, :html => {:multipart => true }, :validate=>true ) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label "ilustracja" %><br />
+    <%= f.file_field :illustration %>
+  </div>
+  <div class="field">
+    <%= f.label "opis" %><br />
+    <%= f.text_field :description %>
+  </div>
+  <%= f.hidden_field :hero_id, :value => @hero.id%>
+  <div class="actions">
+    <%= f.submit "", :class=>"buttonill" %>
+  </div>
+<% end %>
+</div>

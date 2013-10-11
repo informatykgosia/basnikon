@@ -1,0 +1,14 @@
+<div class="matop"></div>
+<div class="main">
+<% @users.each do |user| %>
+  <div class="adminuser">
+  <h3><%= user.login %></h3>
+  <div class="meil"> <%= user.email %></div>
+    <%= link_to 'Pokaż', user %>
+  <%= link_to 'Edytuj', edit_user_path(user) %>
+  <%= link_to 'Usuń', user, confirm: 'Chcesz usunąć tego użytkownika oraz wszystkie jego wpisy?', method: :delete %></td>
+  </div>
+<% end %>
+
+</div>
+<div class="mabottom"></div>

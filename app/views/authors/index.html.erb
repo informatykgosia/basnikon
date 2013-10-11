@@ -1,0 +1,18 @@
+<div class="matop"></div>
+<div class="main">
+
+
+<% @authors.each do |author| %>
+<div class="authorindex">
+   <p> <%= link_to author.full_name, author %></p>
+<%= link_to image_tag(author.image_url(:thumb)), author, :class=>"miniauthor"  %>
+</div>
+  
+<% end %>
+
+
+<br />
+
+<%= link_to 'Dodaj nowego autora', new_author_path %>
+</div>
+<div class="mabottom"></div>

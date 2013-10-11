@@ -1,0 +1,25 @@
+<div class="matop"></div>
+<div class="main">
+  <ol class="story">
+    <ul>
+      <% @stories_by_letter.each do |letter, stories| %>
+        <div class="oneletter">
+          <li class="letter"><%= letter %></li>
+          <ul>
+            <% stories.sort_by(&:title).each do |story| %>
+  
+              <li><%=link_to story.title, story %>|
+                    <%  @authors=story.authors %>
+                    <%= @authors.map(&:full_name).join(', ')%>
+              
+             <% end %>
+           </ul>
+         </div>
+       <%end %>
+  
+    </ul>
+  </ol>
+
+<%= link_to 'Dodaj nową baśń', new_story_path %>
+</div>
+<div class="mabottom"></div>

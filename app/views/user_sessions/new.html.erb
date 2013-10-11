@@ -1,0 +1,17 @@
+<div class='logowanie'>
+<% if current_user %>
+  <div>
+    Jesteś już zalogowany jako <b><%= current_user.login %> </b>
+  </div>
+<% else %>
+  <%= form_for @user_session, :url => user_session_path do |a| %>
+    <%= a.label :login %><br />
+    <%= a.text_field :login %><br />
+    <%= a.label "Hasło"%><br />
+    <%= a.password_field :password %><br />
+    <%= a.submit "", :class=>"buttonsubmit" %>
+  <% end %>
+  <p>lub
+  <%= link_to "Zarejestruj się", new_user_path %></p>
+<% end %>
+</div>

@@ -1,0 +1,27 @@
+
+<h1> edytuj </h1>
+
+  <div class=form_newuser>
+    <img src=<%= asset_path 'apple.png'  %> class="illustration" />
+  <%= form_for @user, :validate => true do |f| %>
+    <%= f.error_messages %>
+  <p>
+    <%= @user.login%> 
+    </p>
+    <p> 
+    <%= f.label "e-mail" %> <br />
+    <%= f.text_field :email %> 
+    </p>
+    <p>
+    <%= f.label "hasło" %><br />
+    <%= f.password_field :password %>
+    </p>
+    <p>
+    <%= f.label "potwierdź hasło" %><br />
+    <%= f.password_field :password_confirmation %>
+    </p>
+    <p>
+    <%= f.submit "", :class=>'buttoneditprofile' %>
+    </p>
+  </div>
+<% end %>

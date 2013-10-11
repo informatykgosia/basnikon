@@ -1,0 +1,73 @@
+.form_newuser{
+width: 600px;
+padding:50px;
+background:#D3E3BF;
+margin: 0 auto;
+}
+img.illustration{
+float:right;
+margin-top:50px;
+margin-right:30px;
+}
+label{
+color:#343338;
+}
+.buttonregister{
+width:215px;
+height:36px;
+border:none;
+background:transparent;
+background-image: url('buttonregister.png');
+background-repeat:no-repeat;
+margin-top:20px;
+cursor:pointer;
+}
+.buttonregister:hover{
+background-image: url('buttonregister2.png');
+background-position: 1px 2px;
+}
+.buttoneditprofile{
+width:215px;
+height:36px;
+border:none;
+background:transparent;
+background-image: url('buttoneditprofile.png');
+background-repeat:no-repeat;
+margin-top:20px;
+cursor:pointer;
+}
+.buttoneditprofile:hover{
+background-image: url('buttoneditprofile2.png');
+background-position: 1px 2px;
+}
+.edituser{
+height:50px;
+}
+.edituser a, .adminuser a{
+background:#d4e6c0;
+padding:10px;
+border:none;
+}
+.edituser a:hover, .adminuser a:hover{
+background: #74ac89;
+color: #FFF;
+}
+.wizytowka{
+height:70px;
+}
+.adminuser{
+padding:20px;
+padding-top:0px;
+margin-bottom:20px;
+background:#d4e6c0;
+width:250px;
+float:left;
+margin-left:15px;
+}
+.adminuser a{
+border: 1px solid #74ac89;
+}
+.meil{
+margin-top:-20px;
+margin-bottom:20px;
+}

@@ -1,0 +1,23 @@
+<%= form_for @story, :validate => true do |f| %>
+  <%= f.error_messages %>
+  <div class="field">
+    <%= f.label "Tytuł" %><br/>
+    <%= f.text_field :title %>
+  </div>
+	<% f.fields_for :authors do |a| %>
+		<%= p.label_for :author_id %>
+		<%= p.select :author_id, @authors, {:include_blank => true } %>
+	<% end %>
+  <div class="field">
+    <%= f.label :author_id %>
+    <%= f.select :author_id, @authors, {:include_blank => true} %>
+    <%= f.select :author_id, @authors, {:include_blank => true} %>
+  </div>
+  <div class="field">
+    <%= f.label "opis" %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

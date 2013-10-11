@@ -1,0 +1,30 @@
+<div class="matop"></div>
+<div class='main'>
+  <% if defined?(current_user.login) && current_user.login== @user.login %>
+    <h1>Twój profil </h1>
+    <div class="edituser">
+      <%= link_to 'Edytuj', edit_user_path(@user) %>
+      <% if current_user.admin == true %>
+        <%= link_to "lista użytkowników", users_path %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="wizytowka">
+
+    <b> login:</b> <%= @user.login%> <br />
+    <b>e-mail:</b> <%= @user.email%> <br />
+    <%if @user.admin? %>
+      <b>status:</b> administrator 
+    <% end %>
+  </div>
+  <hr>
+  <% if @heros.empty? %>
+    <h4> Nie ma jeszcze bohaterów dodanych przez użytkownika <%= @user.login %>. </h4>
+<% else %>
+  <h4> Bohaterowie dodani przez użytkownika <%= @user.login %>:</h4>
+      <% @heros.each do |hero| %>
+      <%=link_to hero.name, hero %><br />
+      <% end %>
+  <% end %>
+  </div>
+  <div class="mabottom"></div>

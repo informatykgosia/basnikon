@@ -1,0 +1,54 @@
+<div class='matop'></div>
+<div class='main'>
+  <p id="notice"><%= notice %></p>
+  <a href="<%= @author.image_url(:big) %>" rel="lightbox" >
+    <%= image_tag(@author.image_url(:thumb), :class=>"image")  %>
+  </a>
+<h1>
+  <%= @author.full_name %>
+</h2>
+<%if current_user %>
+<div class="opcjeautora">  
+  <%= link_to 'Edytuj', edit_author_path(@author) %>
+  <% if current_user.admin==true %>
+    <%= link_to 'Usuń', @author, confirm: 'Jesteś pewien, że chcesz usunąć tego autora?', method: :delete %>
+  <% end%>
+  </div>
+  <% end%>
+<%if @author.description?%>
+  <div class="flip"> </div>
+  <div class="authordescription">
+    <%= @author.description.html_safe %>
+  </div>
+<% else%>
+  <h4> Ten autor nie został jeszcze opisany.</h4>
+<%end%>
+<hr>
+<% if @stories %>
+<h4>Baśnie i bohaterowie:</h4>
+<ol class="author">
+  <ul>
+    <% @stories_by_letter.each do |letter, stories| %>
+
+      <div class="oneletter">
+        <li class="letter"> <%= letter %></li>
+        <ul>
+          <% stories.sort_by(&:title).each do |story| %>
+            <li> <b><%= link_to story.title, story %></b></li>
+
+            <ul>
+              <% @heros = story.heros %>
+              <% @heros.each do |hero| %> 
+                <li> <%= link_to hero.name, hero %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </ul>
+</ol>
+<% end %>
+<%= link_to 'powrót', authors_path %>
+</div>
+<div class='mabottom'></div>

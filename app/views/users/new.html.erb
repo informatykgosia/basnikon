@@ -1,0 +1,31 @@
+<% if current_user %>
+  <div>
+    Jesteś już zalogowany jako <b><%= current_user.login %></b>, zaproś znajomych, niech oni sie zarejestrują!
+  </div>
+<% else %>
+  <div class=form_newuser>
+    <img src=<%= asset_path 'apple.png'  %> class="illustration" />
+  <%= form_for @user, :validate => true do |f| %>
+    <%= f.error_messages %>
+  <p>
+  <span>*</span> <%= f.label "Nazwa użytkownika" %><br />
+    <%= f.text_field :login %> 
+    </p>
+    <p> 
+    <span>*</span> <%= f.label "e-mail" %> <br />
+    <%= f.text_field :email %> 
+    </p>
+    <p>
+    <span>*</span> <%= f.label "hasło" %><br />
+    <%= f.password_field :password %>
+    </p>
+    <p>
+    <span>*</span><%= f.label "potwierdź hasło" %><br />
+    <%= f.password_field :password_confirmation %>
+    </p>
+    <p>
+    <%= f.submit "", :class=>'buttonregister' %>
+    </p>
+  </div>
+  <% end %>
+<% end %>

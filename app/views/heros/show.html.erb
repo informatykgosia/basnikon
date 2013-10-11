@@ -1,0 +1,104 @@
+<div class="matop"></div>
+<div class="main">
+  <p id="notice"><%= notice %></p>
+  <div class ="picture">
+    <%= image_tag(@hero.picture_url(:thumb), :class=>"picture")  %>
+    <%= @hero.image_description %>
+  </div>
+  <div class="textbox">
+    <h2>
+      <%= @hero.name %>
+    </h2>
+    <h4>
+      z baśni: <i><%= link_to @hero.story.title, story_path(@story) %></i>
+      
+      napisanej przez:
+      <% @authors.each do |a| %>
+        <i>  <%= link_to a.first_name + ' ' + a.last_name, author_path(a) %></i> |
+      <% end %>
+    </h4>
+    <div class="info">
+      dodane przez <%= link_to @hero.user.login, user_path(@hero.user), :class=>'user' %>
+    tagi:
+    <% @hero.tags.each do |tag| %>
+      <%= link_to tag.name, heros_path(:tag_name => tag.name), :class=> 'tag' %>
+    <%end%>
+  </div>
+  <hr>
+  <%= @hero.description.html_safe %>
+
+
+</div>
+  <div class="opcje3">
+<% if current_user %>
+    <% if (current_user.id==@hero.user_id) || (current_user.admin ==true)%>
+      <%= link_to 'Edytuj', edit_hero_path(@hero) %> 
+      <%= link_to 'Usuń', @hero, confirm: 'Jesteś pewien, że chcesz usunąć tego bohatera?', method: :delete %>
+    <%end%>
+<% end %>
+  </div>
+<div class='illcom'> 
+  <div class="flipcomments"><%= image_tag('buttonflipcomments.png')%></div>
+  <div class="flipillustrations"><%=image_tag('buttonflipillustrations.png')%> </div>
+</div>
+</div>
+<%= image_tag('mainbottom.png', :class=>'mainbottom2') %>
+
+
+<div class="comments">
+
+  <% unless current_user %>
+    <p id="notice">	Aby dodawać komentarze musisz być zalogowany.</p>
+  <% end %>
+  <% if @hero.comments.empty?%>
+    <h4> Ten bohater nie ma jeszcze komentarzy </h4>
+  <% end %>
+  <% unless @hero.comments.empty? %>
+    <% @hero.comments.each do |comment| %>
+      <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+      <strong><%= link_to comment.user_name, user_path(@user_id) %></strong>napisał(a):
+         <% if defined?(current_user.login) && ((current_user.login== comment.user_name) || (current_user.admin == true)) %>
+               |<%= link_to 'Usuń', comment, confirm: 'Jesteś pewny, że chcesz usunąć ten komentarz?', method: :delete %>
+         <% end %>
+  <br />
+  <div class="comment">
+    <%= comment.body %>
+  </div>
+<% end %>
+<% end %>
+<% if current_user %>
+<%= render 'comments/form' %>
+<% end %>
+
+
+<div class='upcom'> 
+  <div class="flipcomments"><%= image_tag('flipcomup.png', :class=>"comup")%></div>
+</div>
+<%= image_tag('commbottom.png', :class => 'commbottom' )%>
+</div>
+
+<div class='illustrations'>
+  <% if @hero.illustrations.empty? %>
+    <h4> Ten bohater nie ma jeszcze ilustracji </h4>
+  <% end %>
+  <% @hero.illustrations.each do |illustration| %>
+    <div class= "ilustracja">
+    <a href="<%= illustration.illustration_url(:big)%>" title="Dodane przez: <%= illustration.user_name%>. Opis: <%= illustration.description%>" rel="lightbox[ills]">
+      <%= image_tag(illustration.illustration_url(:thumb)) if illustration.illustration?  %>
+    </a>
+    <% if current_user && ((current_user.login==illustration.user_name) || (current_user.admin == true)) %>
+      <%= link_to 'Usuń', illustration, :class=>"fotousuwanie",confirm: 'Jesteś pewny, że chcesz usunąć to zdjęcie?', method: :delete %>
+    <% end %>
+  </div>
+  <% end %>
+  <% if current_user %>
+    <%= render 'illustrations/form' %>
+  <% else %>
+    <h4> Aby dodawać ilustracje musisz być zalogowany. </h4>    
+  <% end %>
+  <div class='upill'> 
+    <div class="flipillustrations"><%=image_tag('flipillup.png')%></div>
+  </div>
+  <%= image_tag('illbottom.png', :class => 'illbottom') %>
+</div>
+

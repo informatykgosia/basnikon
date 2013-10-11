@@ -1,0 +1,44 @@
+<div class="matop"></div>
+<div class="main">
+  <p id="notice"><%= notice %></p>
+
+  <h3><i><%= @story.title %></i></h3>
+  <div class="autorstwa">
+    <b>Autorstwa:</b>
+    <% @story.authors.each do |a| %>
+      <%= link_to a.full_name, author_path(a) %> |
+      
+    <% end %>
+  </div>
+  <%= @story.description.html_safe%>
+<div class="opcje"> 
+<%if current_user %> 
+  <%= link_to 'Edytuj', edit_story_path(@story) %>
+<% if current_user.admin == true %>
+  <%= link_to 'Usuń', @story, confirm: 'Jesteś pewien, że chcesz usunąć tę baśń?', method: :delete %>
+<% end %>
+<% end %>
+  </div>
+  <hr>
+  <% unless @heros.empty? %>
+    <h4> Postacie opisane z tej baśni: </h4> 
+    <ol class="story">
+      <ul>
+        <% @heros_by_letter.each do |letter, heros| %>
+          <div class="oneletter">
+            <li class="letter"><%= letter %> </li>
+            <ul>
+              <% heros.sort_by(&:name).each do |hero|%>
+                <li><%= link_to hero.name, hero_path(hero)%></li>
+              <% end%>
+            </ul>
+          </div>
+        <% end %>
+      </ul>
+    </ol>
+  <% else %>
+    <h4> Postacie z tej baśni nie zostały jeszcze opisane. </h4>
+  <% end %>
+
+</div>
+<div class="mabottom"></div>

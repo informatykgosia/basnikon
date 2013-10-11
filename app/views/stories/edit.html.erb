@@ -1,0 +1,25 @@
+<h1>Edycja baśni</h1>
+
+<div class="formstory2">
+<%= form_for @story, :validate => true do |f| %>
+  <%= f.error_messages %>
+  <div class="field">
+    <span>*</span>  <%= f.label "Tytuł" %><br/>
+    <%= f.text_field :title %>
+  </div>
+    <%#= f.select :author_id, @authors, {:include_blank => true} %>
+    <div class="field">
+      <% for author in Author.all %>
+        <%= check_box_tag "story[author_ids][]", author.id, @story.authors.include?(author) %>
+        <%= author.full_name %> <br />       
+      <% end %>
+    </div>
+  <div class="field">
+    <%= f.label "opis" %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit "", :class=>"buttoneditstory" %>
+  </div>
+<% end %>
+</div>

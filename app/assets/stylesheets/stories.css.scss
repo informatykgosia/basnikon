@@ -1,0 +1,68 @@
+.formstory, .formstory2{
+  padding:50px;
+  background-color:#ABC9BE;
+  background-repeat:no-repeat;
+  background-position: 600px 100px;
+}
+.formstory{
+background-image:url('kartka.png');
+}
+.formstory2{
+background-image:url('kartka2.png');
+  background-position: 760px 170px;
+}
+.formstory textarea, .formstory2 textarea{
+height:200px;
+}
+ ol.story{
+-moz-column-count: 1;
+-webkit-column-count:1;
+column-count:1;
+}
+
+.buttonnewstory{
+width:215px;
+height:36px;
+border:none;
+background:transparent;
+background-image: url('buttonnewstory.png');
+background-repeat:no-repeat;
+margin-top:20px;
+cursor:pointer;
+}
+.buttonnewstory:hover{
+background-image: url('buttonnewstory2.png');
+background-position: 1px 2px;
+}
+.buttoneditstory{
+width:215px;
+height:36px;
+border:none;
+background:transparent;
+background-image: url('buttoneditstory.png');
+background-repeat:no-repeat;
+margin-top:20px;
+cursor:pointer;
+}
+.buttoneditstory:hover{
+background-image: url('buttoneditstory2.png');
+background-position: 1px 2px;
+}
+.opcje{
+height:50px;
+margin-bottom:-20px;
+margin-top:20px;
+}
+.opcje a, .opcje a{
+background:#d4e6c0;
+padding:10px;
+border:none;
+}
+.opcjer a:hover, .opcje a:hover{
+background: #74ac89;
+color: #FFF;
+}
+.autorstwa{
+margin-top:-20px;
+margin-bottom:20px;
+}
