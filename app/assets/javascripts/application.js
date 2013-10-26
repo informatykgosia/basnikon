@@ -13,7 +13,9 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery-ui
-//= require autocomplete-rails 
+//= require autocomplete-rails
+//= require rails.validations
+
 $(document).ready(function(){
 	$(".miniprofil").hover(
 		function(){
@@ -27,7 +29,7 @@ $(document).ready(function(){
 				  );
 				$('.submenu').fadeIn("slow");
 	},
-	
+
 	function(){
 		$(this).animate({
 			height: '-=80px'
