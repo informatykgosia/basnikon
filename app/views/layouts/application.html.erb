@@ -4,8 +4,13 @@
     <title>Baśnioteka - katalog postaci baśniowych</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Patrick+Hand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-  
-    <%= stylesheet_link_tag "application","authors","users","heros","stories","lightbox", :media => "all" %>   
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "authors", :media => "all" %>
+    <%= stylesheet_link_tag "users", :media => "all" %>
+    <%= stylesheet_link_tag "heros", :media => "all" %>
+    <%= stylesheet_link_tag "stories", :media => "all" %>
+    <%= stylesheet_link_tag "lightbox", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= javascript_include_tag "autocomplete-rails.js" %>
@@ -18,7 +23,7 @@
     <header>
         <% if current_user %>
       <div class="miniprofil">
-      <div class="border">        
+      <div class="border">
         <p>Witaj, <%=link_to current_user.login, current_user, :title=>"twój profil"%>!<p>
         <div class="submenu">
         <ul>
@@ -27,11 +32,11 @@
           <li><%= link_to 'dodaj autora', new_author_path, :title=>"dodaj autora" %></li>
           <li><%= link_to "wyloguj się", logout_path, :title=>"wyloguj się" %></li>
         </ul>
-        </div>    
+        </div>
      </div>
      </div>
     <% else %>
-  <%= link_to  "<div class='minilogowanie'>   
+  <%= link_to  "<div class='minilogowanie'>
         </div>".html_safe, login_path, :title=>"zaloguj się" %>
     <% end %>
     <% unless current_user %>
@@ -40,7 +45,7 @@
   <div class="top">
     <div class="topcontainer">
 
-	
+
 
       <nav>
       <ul class=menu>

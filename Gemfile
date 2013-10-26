@@ -14,7 +14,7 @@ group :production do
 end
 
 gem 'carrierwave'
-gem 'rmagick', '2.13.1'
+gem 'rmagick', '2.13.2'
 gem 'rails3-jquery-autocomplete'
 gem "ckeditor", "3.7.1"
 gem "mini_magick"
@@ -51,4 +51,3 @@ gem 'will_paginate', '~> 3.0'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 #
-gem 'therubyracer'
